@@ -4,11 +4,10 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
+  
   private recipes: Recipe[] = [
     new Recipe("Cheese", "Test recipe.", "https://upload.wikimedia.org/wikipedia/commons/6/61/Trappista_cheese_original.jpg", [
       new Ingredient('Ser', 1),
@@ -26,6 +25,10 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+  getRecipe(index: number){
+    return this.recipes[index];
+
   }
   
   
