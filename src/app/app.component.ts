@@ -9,7 +9,4 @@ export class AppComponent {
   title = 'FoodApp';
   loadedFeature = "recipe";
   
-  onNavigate(feature:string) {
-    this.loadedFeature = feature;
-  }
 }
