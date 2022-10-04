@@ -5,12 +5,14 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RecipeService {
   recipeChanged= new Subject<Recipe[]>();
   
   private recipes: Recipe[] = [
-    new Recipe("Cheese", "Test recipe.", "https://upload.wikimedia.org/wikipedia/commons/6/61/Trappista_cheese_original.jpg", [
+   /*  new Recipe("Cheese", "Test recipe.", "https://upload.wikimedia.org/wikipedia/commons/6/61/Trappista_cheese_original.jpg", [
       new Ingredient('Ser', 1),
       new Ingredient("super ser", 2)
     ]),
@@ -20,7 +22,7 @@ export class RecipeService {
     [
       new Ingredient("Serowy Ser",1),
       new Ingredient("Bardziej Srerowy Ser", 2)
-    ])
+    ]) */
   ];
   constructor(private slService : ShoppingListService) { }
 
