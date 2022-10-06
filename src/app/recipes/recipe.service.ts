@@ -4,7 +4,8 @@ import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Recipe } from './recipe.model';
 import { Store } from '@ngrx/store';
-import * as ShoppingListAction from '../shopping-list/store/shopping-list.action'
+import * as ShoppingListAction from '../shopping-list/store/shopping-list.action';
+import * as fromShoppingList from 'src/app/shopping-list/store/shopping-list.reducer'
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import * as ShoppingListAction from '../shopping-list/store/shopping-list.action
 })
 export class RecipeService {
   recipeChanged= new Subject<Recipe[]>();
-  
+
   private recipes: Recipe[] = [
    /*  new Recipe("Cheese", "Test recipe.", "https://upload.wikimedia.org/wikipedia/commons/6/61/Trappista_cheese_original.jpg", [
       new Ingredient('Ser', 1),
@@ -28,7 +29,7 @@ export class RecipeService {
   ];
   constructor
   (private slService : ShoppingListService,
-    private store: Store<{shoppingList: {ingredients: Ingredient[]}}>
+    private store: Store<fromShoppingList.AppState>
     ) { }
 
   setRecipes(recipes: Recipe[]) {
@@ -43,12 +44,12 @@ export class RecipeService {
     return this.recipes[index];
 
   }
-  
-  
+
+
   addIngredientsToShoppingList(ingredients:Ingredient[] ){
     /* this.slService.addIngredients(ingredients); */
     this.store.dispatch(new ShoppingListAction.AddIngredients(ingredients) )
-    
+
   }
   addRecipe(recipe: Recipe){
     this.recipes.push(recipe);
@@ -63,5 +64,5 @@ export class RecipeService {
     this.recipes.splice(index, 1);
     this.recipeChanged.next(this.recipes.slice());
    }
-   
+
 }

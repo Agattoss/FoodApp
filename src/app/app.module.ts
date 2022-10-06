@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import { ShoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 
 
 
@@ -15,13 +15,13 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
   declarations: [
     AppComponent,
     HeaderComponent,
-  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({shoppingList: shoppingListReducer}),
+    StoreModule.forRoot({shoppingList: ShoppingListReducer}),
     CoreModule,
     SharedModule,
   ],
