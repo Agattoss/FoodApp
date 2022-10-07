@@ -3,9 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list.service';
 import * as ShoppingListActions from 'src/app/shopping-list/store/shopping-list.action'
-import * as fromShoppingList from '../store/shopping-list.reducer';
+import * as fromApp from 'src/app/store/app.reducer';
 
 
 @Component({
@@ -20,8 +19,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editedItem: Ingredient;
 
   constructor(
-    private slService: ShoppingListService,
-    private store: Store<fromShoppingList.AppState>) { }
+    private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
     this.subscription = this.store.select('shoppingList').subscribe(stateData =>{

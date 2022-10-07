@@ -7,8 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { ShoppingListReducer } from './shopping-list/store/shopping-list.reducer';
-
+import * as fromApp from './store/app.reducer'
 
 
 @NgModule({
@@ -21,7 +20,7 @@ import { ShoppingListReducer } from './shopping-list/store/shopping-list.reducer
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({shoppingList: ShoppingListReducer}),
+    StoreModule.forRoot(fromApp.appReducer),
     CoreModule,
     SharedModule,
   ],

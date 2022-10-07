@@ -25,10 +25,7 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    return this.authService.user
-      .pipe(
-        take(1),
-        exhaustMap((user) => {
+
           return this.http.get<Recipe[]>(
             'https://reciepiebook-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
           )
@@ -43,8 +40,5 @@ export class DataStorageService {
           tap(recipes => {
             this.recipeService.setRecipes(recipes);
           }))
-        }),
-       
-      )
+        }
   }
-}
