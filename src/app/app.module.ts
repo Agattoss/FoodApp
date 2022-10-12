@@ -7,7 +7,11 @@ import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import * as fromApp from './store/app.reducer'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import * as fromAuth from './auth/store/auth.reducer'
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -20,7 +24,10 @@ import * as fromApp from './store/app.reducer'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(fromApp.appReducer),
+    StoreModule.forRoot({auth: fromAuth.authReducer}),
+    EffectsModule.forRoot([AuthEffects,]), //add recipe effects
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production }),
+
     CoreModule,
     SharedModule,
   ],

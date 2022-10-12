@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/food-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,6 +28,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
+
+
           },
           "configurations": {
             "production": {
