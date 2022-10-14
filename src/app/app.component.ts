@@ -11,7 +11,8 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent implements OnInit {
   title = 'FoodApp';
-  constructor(private authService: AuthService, private store: Store){}
+  constructor(
+    private store: Store<fromApp.AppState>){}
   ngOnInit(){
     this.store.dispatch(AuthActions.autoLogin());
   }

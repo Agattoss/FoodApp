@@ -9,9 +9,11 @@ import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import * as fromAuth from './auth/store/auth.reducer'
-import { EffectsModule } from '@ngrx/effects';
+
 import { AuthEffects } from './auth/store/auth.effects';
 import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { RecipeEffects } from './recipes/store/recipe.effects';
 
 
 @NgModule({
@@ -19,13 +21,14 @@ import { environment } from 'src/environments/environment';
     AppComponent,
     HeaderComponent,
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({auth: fromAuth.authReducer}),
-    EffectsModule.forRoot([AuthEffects,]), //add recipe effects
+    EffectsModule.forRoot([AuthEffects,RecipeEffects]), //add shopping-list effects
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production }),
 
     CoreModule,

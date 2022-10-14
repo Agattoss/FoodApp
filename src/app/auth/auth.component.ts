@@ -24,7 +24,7 @@ private closeSub: Subscription;
 private storeSub: Subscription;
 
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
+    private componentFactoryResolver: ComponentFactoryResolver,//////to change
     private store: Store<fromApp.AppState>) {}
 
 
