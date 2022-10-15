@@ -5,7 +5,6 @@ import * as fromApp from '../store/app.reducer';
 import * as AuthActions from './store/auth.actions';
 import { Store } from '@ngrx/store';
 
-import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
-  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+
 
 
 private closeSub: Subscription;
