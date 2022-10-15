@@ -1,11 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { AlertComponent } from "./alert/alert/alert.component";
+import { AlertComponent } from "./alert/alert.component";
 import { DropdownDirective } from "./dropdown.directive";
 import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner/loading-spinner.component";
 
 @NgModule({
-    declarations:[ 
+    declarations:[
     LoadingSpinnerComponent,
     AlertComponent,
     DropdownDirective
@@ -13,7 +13,7 @@ import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner/loadi
     imports:[
         CommonModule,
     ],
-    exports: [ 
+    exports: [
         LoadingSpinnerComponent,
         AlertComponent,
         DropdownDirective,

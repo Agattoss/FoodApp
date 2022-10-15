@@ -28,7 +28,7 @@ import { RecipeEffects } from './recipes/store/recipe.effects';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({auth: fromAuth.authReducer}),
-    EffectsModule.forRoot([AuthEffects,RecipeEffects]), //add shopping-list effects
+    EffectsModule.forRoot([AuthEffects,RecipeEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production }),
 
     CoreModule,
