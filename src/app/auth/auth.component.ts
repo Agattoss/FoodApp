@@ -1,11 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import * as fromApp from '../store/app.reducer';
 import * as AuthActions from './store/auth.actions';
 import { Store } from '@ngrx/store';
-
-
 
 
 @Component({
@@ -17,7 +15,6 @@ export class AuthComponent implements OnInit, OnDestroy {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
-
 
 
 private closeSub: Subscription;
@@ -71,5 +68,7 @@ private storeSub: Subscription;
       this.storeSub.unsubscribe();
     }
   }
+
+
 
 }
